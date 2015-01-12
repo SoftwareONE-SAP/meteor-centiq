@@ -78,8 +78,6 @@ var getIdentity = function(accessToken) {
         accountObject,
         profileObject;
 
-        console.log(accessToken, endpoint);
-
     try {
         identityObject = HTTP.get(
             endpoint,
