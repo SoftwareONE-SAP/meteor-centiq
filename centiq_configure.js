@@ -9,6 +9,7 @@ Template.configureLoginServiceDialogForCentiq.fields = function () {
     {property: 'clientId', label: 'Client ID'},
     {property: 'secret', label: 'Client secret'},
     {property: 'authEndpoint', label: 'Auth Endpoint URI'},
-    {property: 'tokenEndpoint', label: 'Token Endpoint URI'}
+    {property: 'tokenEndpoint', label: 'Token Endpoint URI'},
+    {property: 'apiEndpoint', label: 'API Endpoint'}
   ];
 };

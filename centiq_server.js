@@ -68,18 +68,28 @@ var getTokens = function (query) {
 };
 
 var getIdentity = function(accessToken) {
+    var config = ServiceConfiguration.configurations.findOne({service: 'centiq'});
+    if (!config)
+        throw new ServiceConfiguration.ConfigError();
+
+    var endpoint = (config.apiEndpoint || "https://api.centiq.co.uk") + "/user/me";
+
     var identityObject,
         accountObject,
         profileObject;
+
+        console.log(accessToken, endpoint);
+
     try {
         identityObject = HTTP.get(
-            "https://api.centiq.co.uk/user/me",
+            endpoint,
             {
                 params: {
                     access_token: accessToken
                 }
             }
         ).data;
+
         accountObject = _.pick(identityObject.account, Centiq.whitelistedFields);
         profileObject = _.pick(identityObject.profile, Centiq.whitelistedFields);
         profileObject.name = identityObject.profile.displayname;
