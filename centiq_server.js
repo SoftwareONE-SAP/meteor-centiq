@@ -13,9 +13,6 @@ OAuth.registerService('centiq', 2, null, function(query) {
 
     _.extend(serviceData, _.pick(identity, Centiq.whitelistedFields));
 
-    // only set the token in serviceData if it's there. this ensures
-    // that we don't lose old ones (since we only get this on the first
-    // log in attempt)
     if (response.refreshToken) {
         serviceData.refreshToken = response.refreshToken;
     }
