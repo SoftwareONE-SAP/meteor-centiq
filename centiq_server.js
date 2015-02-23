@@ -82,8 +82,8 @@ var getIdentity = function(accessToken) {
         identityObject = HTTP.get(
             endpoint,
             {
-                params: {
-                    access_token: accessToken
+                headers: {
+                	Authorization: "Bearer " + accessToken
                 }
             }
         ).data;
