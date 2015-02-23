@@ -72,7 +72,7 @@ var getIdentity = function(accessToken) {
     if (!config)
         throw new ServiceConfiguration.ConfigError();
 
-    var endpoint = (config.apiEndpoint || "https://api.centiq.co.uk") + "/user/me";
+    var endpoint = (config.apiEndpoint || "https://api.centiq.co.uk") + "/accounts/me";
 
     var identityObject,
         accountObject,
@@ -82,8 +82,8 @@ var getIdentity = function(accessToken) {
         identityObject = HTTP.get(
             endpoint,
             {
-                params: {
-                    access_token: accessToken
+                headers: {
+                	Authorization: "Bearer " + accessToken
                 }
             }
         ).data;
