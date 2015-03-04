@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Centiq OAuth flow",
-  version: "1.0.2",
+  version: "1.0.3",
   git: "https://github.com/Centiq/meteor-centiq"
 });
 
