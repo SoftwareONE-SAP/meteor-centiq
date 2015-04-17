@@ -69,7 +69,7 @@ var getIdentity = function(accessToken) {
     if (!config)
         throw new ServiceConfiguration.ConfigError();
 
-    var endpoint = (config.apiEndpoint || "https://api.centiq.co.uk") + "/accounts/me";
+    var endpoint = (config.apiEndpoint || "https://api.centiq.co.uk") + "/accounts/me?v=2";
 
     var identityObject,
         accountObject,
